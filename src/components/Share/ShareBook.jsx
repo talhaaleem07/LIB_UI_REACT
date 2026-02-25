@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-const ShareBook = ({ shareData, type, onUnshare }) => {
+const ShareBook = ({ shareData, type, onUnshare, isHighlighted }) => {
   const [imageError, setImageError] = useState(false);
-  
   // Extract book data - handle different API response structures
   const book = shareData.book || shareData.bookId || shareData;
   // FIXED: Use correct property name from backend (sharedTo, not sharedWith)
@@ -61,7 +60,13 @@ const ShareBook = ({ shareData, type, onUnshare }) => {
   const bookImage = book?.image || book?.imageUrl || defaultBookImage;
 
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+    <div
+      className={`bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-700 overflow-hidden ${
+        isHighlighted
+          ? 'ring-4 ring-blue-500 ring-offset-2 shadow-blue-200 shadow-xl scale-[1.02]'
+          : ''
+      }`}
+    >
       {/* Book Image */}
       <div className="relative h-48 bg-gradient-to-br from-purple-500 to-pink-600 overflow-hidden">
         <img
@@ -86,6 +91,7 @@ const ShareBook = ({ shareData, type, onUnshare }) => {
             Shared
           </span>
         </div>
+
       </div>
 
       {/* Book Details */}

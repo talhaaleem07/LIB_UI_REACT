@@ -24,4 +24,9 @@ export const shareService = {
     const response = await api.delete(`/share/${shareId}`);
     return response.data;
   },
+
+  getSharedUsers: async (bookId) => {
+  const response = await api.get(`/books/${bookId}/shared-users`);
+  return response.data;
+},
 };

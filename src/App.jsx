@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { SocketProvider } from './contexts/SocketContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './components/PrivateRoute';
@@ -30,6 +31,7 @@ const RootRedirect = () => {
 function App() {
   return (
     <AuthProvider>
+      <SocketProvider>
       <Router>
         <Routes>
           {/* Public Routes */}
@@ -105,6 +107,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
+      </SocketProvider>
     </AuthProvider>
   );
 }
