@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { notificationService } from '../../services/notificationService';
 import { useSocket } from '../../contexts/SocketContext';
+import { toast } from 'react-toastify';
 
 const NotificationBell = () => {
   const [notifications, setNotifications] = useState([]);
@@ -31,6 +32,8 @@ const NotificationBell = () => {
         console.log(`[Bell] Badge: ${prev} → ${prev + 1}`);
         return prev + 1;
       });
+      
+      toast.info(`📚 ${data.message}`, { position: 'top-right', autoClose: 3000, toastId: data._id, });
 
       // Normalise the real-time payload: the socket sends `notificationType`
       // (e.g. 'BOOK_SHARED') separately to avoid overwriting the top-level
