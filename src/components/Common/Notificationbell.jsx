@@ -32,11 +32,17 @@ const NotificationBell = () => {
         return prev + 1;
       });
 
+      // Normalise the real-time payload: the socket sends `notificationType`
+      // (e.g. 'BOOK_SHARED') separately to avoid overwriting the top-level
+      // `type: 'notification'` field. Map it back to `type` so it matches
+      // the shape returned by the REST API.
+      const normalised = { ...data, type: data.notificationType ?? data.type };
+
       // Add to list only if already loaded
       setNotifications((prev) => {
         if (prev.length === 0) return prev;
-        if (prev.some((n) => n._id === data._id)) return prev;
-        return [data, ...prev];
+        if (prev.some((n) => n._id === normalised._id)) return prev;
+        return [normalised, ...prev];
       });
 
       // Native browser notification (optional, needs user permission)

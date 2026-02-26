@@ -61,11 +61,13 @@ const ShareBook = ({ shareData, type, onUnshare, isHighlighted }) => {
 
   return (
     <div
-      className={`bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-700 overflow-hidden ${
-        isHighlighted
-          ? 'ring-4 ring-blue-500 ring-offset-2 shadow-blue-200 shadow-xl scale-[1.02]'
+      className={`bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-700 overflow-hidden ${isHighlighted
+          // // ? 'ring-4 ring-blue-500 ring-offset-2 shadow-blue-200 shadow-xl scale-[1.02]'
+          // ? 'ring-4 ring-blue-400'
+          // : ''
+          ? 'outline outline-4 outline-blue-500 shadow-blue-200 shadow-xl scale-[1.02]'
           : ''
-      }`}
+        }`}
     >
       {/* Book Image */}
       <div className="relative h-48 bg-gradient-to-br from-purple-500 to-pink-600 overflow-hidden">
