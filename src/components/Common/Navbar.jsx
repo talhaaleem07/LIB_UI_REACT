@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { userService } from '../../services/userService';
 import { API_BASE_URL } from '../../config';
 import NotificationBell from './NotificationBell';
+import MessageBadge from '../Chat/MessageBadge';
 
 const Navbar = () => {
   const { user, logout, isAuthenticated } = useAuth();
@@ -147,6 +148,9 @@ const Navbar = () => {
                 {/*NOTIFICATION BELL*/}
                 <NotificationBell />
 
+                {/*MESSAGE BADGE*/}
+                <MessageBadge />
+
                 <Link
                   to="/profile"
                   className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors"
@@ -185,6 +189,9 @@ const Navbar = () => {
             <div className="md:hidden flex items-center space-x-2">
               {/*NOTIFICATION BELL*/}
               <NotificationBell />
+
+              {/*MESSAGE BADGE*/}
+              <MessageBadge />
 
               <button
                 onClick={toggleMobileMenu}
