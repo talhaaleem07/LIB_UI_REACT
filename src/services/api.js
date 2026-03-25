@@ -29,21 +29,6 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor to handle errors
-// api.interceptors.response.use(
-//   (response) => response,
-//   (error) => {
-//     if (error.response?.status === 401) {
-//       // Clear auth data on unauthorized
-//       localStorage.removeItem('token');
-//       localStorage.removeItem('userId');
-//       localStorage.removeItem('user');
-//       window.location.href = '/login';
-//     }
-//     return Promise.reject(error);
-//   }
-// );
-
 api.interceptors.response.use(
   (response) => response,
   async (error) => {

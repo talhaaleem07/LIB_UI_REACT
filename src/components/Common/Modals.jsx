@@ -1,7 +1,3 @@
-// Reusable Modal Components
-// Note: This project uses React Toastify for notifications instead of traditional modals
-// These are kept as reusable modal wrappers for form dialogs
-
 export const Modal = ({ isOpen, onClose, children, title, size = 'md' }) => {
   if (!isOpen) return null;
 

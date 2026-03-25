@@ -7,21 +7,6 @@ export const authService = {
     return response.data;
   },
 
-  // Login user
-  // login: async (credentials) => {
-  //   const response = await api.post('/login', credentials);
-  //   if (response.data.token) {
-  //     localStorage.setItem('token', response.data.token);
-  //     if (response.data.userId) {
-  //       localStorage.setItem('userId', response.data.userId);
-  //     }
-  //     if (response.data.user) {
-  //       localStorage.setItem('user', JSON.stringify(response.data.user));
-  //     }
-  //   }
-  //   return response.data;
-  // },
-
   login: async (credentials) => {
   const response = await api.post('/login', credentials);
   if (response.data.accessToken) {
@@ -33,13 +18,6 @@ export const authService = {
   }
   return response.data;
 },
-
-  // Logout user
-  // logout: () => {
-  //   localStorage.removeItem('token');
-  //   localStorage.removeItem('userId');
-  //   localStorage.removeItem('user');
-  // },
 
   logout: async () => {
   try {
